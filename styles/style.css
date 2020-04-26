@@ -1,0 +1,93 @@
+/* class to make texts unselectable */
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Additional fonts */
+@font-face {
+  src: url(../fonts/PressStart.ttf);
+  font-family: PressStart;
+}
+
+@font-face {
+  src: url(../fonts/Righteous-Regular.ttf);
+  font-family: RighteousReg;
+}
+
+body {
+  text-align: center;
+  background-color: #3f72af;
+}
+
+/* Title */
+.title {
+  color: #e23e57;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.title-text {
+  font-size: 1.8rem;
+  font-family: PressStart;
+}
+
+.cont0 {
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.box0-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* The boxes */
+.box0 {
+  width: 100px;
+  height: 100px;
+  border: solid;
+  border-radius: 30px;
+  background-color: green;
+}
+
+/* middle button box */
+.box-mid {
+  background-color: blue !important;
+  padding-top: 32px;
+}
+
+.box-mid-text {
+  color: #fff;
+}
+
+.redBox {
+  background-color: red !important;
+}
+
+/* Show elemnts */
+.appearElem {
+  visibility: visible !important;
+}
+
+/* Additional informations */
+.info {
+  color: #aa96da;
+  padding-top: 8%;
+  padding-bottom: 4%;
+  /* visibility: hidden; */
+}
+
+.info-text {
+  font-size: 1.6rem;
+  font-family: PressStart;
+}
+
+.start-button {
+  font-family: RighteousReg;
+  visibility: hidden;
+}
