@@ -57,6 +57,10 @@ body {
 
 /* middle button box */
 .box-mid {
+  width: 100px;
+  height: 100px;
+  border: solid;
+  border-radius: 30px;
   background-color: blue !important;
   padding-top: 32px;
 }
@@ -67,6 +71,10 @@ body {
 
 .redBox {
   background-color: red !important;
+}
+
+.safeBox {
+  background-color: white !important;
 }
 
 /* Show elemnts */
@@ -85,6 +93,7 @@ body {
 .info-text {
   font-size: 1.6rem;
   font-family: PressStart;
+  visibility: hidden;
 }
 
 .start-button {
