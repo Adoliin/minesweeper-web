@@ -65,7 +65,7 @@ function clickedStart(gameStartFun) {
 function addingLevels() {
 
   if (lvl !== 0) {
-    showInfo("Press any keyboard key or the start button bellow to start playing !", "appear");
+    showInfo("Press Enter or the start button below to start playing !", "appear");
     startBtn("appear");
 
   }
