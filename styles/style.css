@@ -36,14 +36,19 @@ body {
   font-family: PressStart;
 }
 
-.cont0 {
-  padding-left: 30%;
-  padding-right: 30%;
-}
 
-.box0-container {
-  padding-top: 15px;
-  padding-bottom: 15px;
+/* The container of all boxes */
+
+.container-0 {
+  background-color: #aa96da;
+  display: grid;
+ 
+  justify-content: center;
+  grid-gap: 20px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3,97px);
+  
+
 }
 
 /* The boxes */
@@ -53,6 +58,11 @@ body {
   border: solid;
   border-radius: 30px;
   background-color: green;
+ 
+/* 
+  display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
 /* middle button box */
@@ -63,6 +73,7 @@ body {
   border-radius: 30px;
   background-color: blue !important;
   padding-top: 32px;
+
 }
 
 .box-mid-text {
