@@ -1,3 +1,4 @@
+gridDimension = 3;
 initGame();
 clickedMidBox();
 clickedStart(gameStart);
@@ -5,9 +6,50 @@ clickedBox0();
 
 
 
+$(".test-btn").on("click", function () {
+  addBoxesBy2();
+  changeTitle("Keep pressing on the middle button to increase difficulty !");
+  showInfo("", "dissapear");
+  startBtn("dissapear");
+
+  initGame();
+  clickedMidBox();
+  clickedStart(gameStart);
+  clickedBox0()
+});
+
+function addBoxesBy2() {
+
+  var container0 = $(".container-0");
+
+  gridDimension = gridDimension + 2;
+
+  container0.css({
+    "grid-template-rows": "repeat(" + gridDimension + ", 1fr)",
+    "grid-template-columns": "repeat(" + gridDimension + ", 30px)"
+  });
+
+  container0.html("");
+  for (var i = 1; i <= gridDimension; i++) {
+    for (var j = 1; j <= gridDimension; j++) {
+      var bNN = 'b' + i + "-" + j;
+      container0.append(
+        "<div type='button' class='" + bNN + " box0'></div>"
+      );
+    }
+  }
+
+  var mD = Math.floor(gridDimension / 2) + 1;
+  var midBox = $(".b" + mD + "-" + mD)[0];
+  midBox.classList.add("box-mid");
+  midBox.classList.remove("box0");
+
+}
 
 function clickedBox0() {
-  $(".box0").on("click", function() {
+
+  $(".box0").on("click", function () {
+
     if (startedPlaying) {
       var btnNum = this.classList[0];
       if (gridBox[btnNum] == 0) {
@@ -34,7 +76,7 @@ function gameStart() {
 }
 
 function clickedMidBox() {
-  $(".box-mid").on("click", function() {
+  $(".box-mid").on("click", function () {
     if (!startedPlaying) {
       addingLevels();
     }
@@ -43,19 +85,17 @@ function clickedMidBox() {
 
 function clickedStart(gameStartFun) {
 
-  $(document).on("keypress", function(e) {
+  $(document).on("keypress", function (e) {
     var startedAddingLvls = ((lvl > -1 && reachedX) || (lvl > 1 && !reachedX));
     if (e.key == "Enter" && !startedPlaying && startedAddingLvls) {
-      console.log('YES!');
       startedPlaying = true;
       gameStartFun();
     }
   });
 
-  $(".start-button").on("click", function() {
+  $(".start-button").on("click", function () {
     var startedAddingLvls = ((lvl > -1 && reachedX) || (lvl > 1 && !reachedX));
     if (!startedPlaying && startedAddingLvls) {
-      console.log('YES!');
       startedPlaying = true;
       gameStartFun();
     }
@@ -128,9 +168,9 @@ function markRndBox() {
   var ok = false;
 
   while (!ok && !isGridFull()) {
-    var rndRow = Math.floor(Math.random() * 3) + 1;
-    var rndCol = Math.floor(Math.random() * 3) + 1;
-    var rndBox = "b" + rndRow + rndCol;
+    var rndRow = Math.floor(Math.random() * gridDimension) + 1;
+    var rndCol = Math.floor(Math.random() * gridDimension) + 1;
+    var rndBox = "b" + rndRow + "-" + rndCol;
     ok = (gridBox[rndBox] !== 1);
   }
   if (isGridFull()) {
@@ -142,28 +182,31 @@ function markRndBox() {
 }
 
 function initGrid() {
-  var gridBox = {
-    b11: 0,
-    b12: 0,
-    b13: 0,
-    b21: 0,
-    b22: 1,
-    b23: 0,
-    b31: 0,
-    b32: 0,
-    b33: 0,
+  gridBox = {};
+
+  for (var i = 1; i <= gridDimension; i++) {
+    for (var j = 1; j <= gridDimension; j++) {
+      var bNN = 'b' + i + "-" + j;
+      gridBox[bNN] = 0;
+    }
   }
+
+  var mD = Math.floor(gridDimension / 2) + 1;
+  var midBox = "b" + mD + "-" + mD;
+  gridBox[midBox] = 1;
+
+
   return gridBox;
 }
 
 function isGridFull() {
-  for (i = 1; i < 4; i++) {
-    for (j = 1; j < 4; j++) {
-      if (gridBox['b' + i + j] == 0) {
+  for (i = 1; i <= gridDimension; i++) {
+    for (j = 1; j <= gridDimension; j++) {
+      if (gridBox['b' + i + "-" + j] == 0) {
         break;
       }
     }
-    if (gridBox['b' + i + j] == 0) {
+    if (gridBox['b' + i + "-" + j] == 0) {
       return false;
     }
   }
@@ -171,7 +214,7 @@ function isGridFull() {
 }
 
 function initGame() {
-  levelX = Math.floor(9 / 2);
+  levelX = Math.floor(gridDimension**2 / 2);
   removeRndBoxes();
   gridBox = initGrid();
   lvl = 1;

@@ -1,5 +1,5 @@
 /* class to make texts unselectable */
-.unselectable {
+.unselectable-text {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -21,7 +21,7 @@
 
 body {
   text-align: center;
-  background-color: #3f72af;
+  background-color: #011F3F;
 }
 
 /* Title */
@@ -29,6 +29,7 @@ body {
   color: #e23e57;
   padding-top: 4%;
   padding-bottom: 4%;
+
 }
 
 .title-text {
@@ -37,51 +38,52 @@ body {
 }
 
 
+.test-btn {
+  width: 100px;
+  height: 100px;
+  margin-left: 300px;
+  background-color:purple;
+}
+
+
 /* The container of all boxes */
 
 .container-0 {
-  background-color: #aa96da;
   display: grid;
- 
+
   justify-content: center;
-  grid-gap: 20px;
+  grid-gap: 10px;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3,97px);
-  
+  grid-template-columns: repeat(3, 30px);
+
 
 }
 
 /* The boxes */
 .box0 {
-  width: 100px;
-  height: 100px;
-  border: solid;
-  border-radius: 30px;
-  background-color: green;
- 
-/* 
-  display: flex;
-  justify-content: center;
-  align-items: center; */
+  width: 30px;
+  height: 30px;
+
+ background-color: mediumseagreen;
+}
+
+.box0:hover {
+  background-color: powderblue;
 }
 
 /* middle button box */
 .box-mid {
-  width: 100px;
-  height: 100px;
-  border: solid;
-  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+ 
   background-color: blue !important;
   padding-top: 32px;
 
 }
 
-.box-mid-text {
-  color: #fff;
-}
 
 .redBox {
-  background-color: red !important;
+  background-color: #e23e57 !important;
 }
 
 .safeBox {
@@ -95,7 +97,7 @@ body {
 
 /* Additional informations */
 .info {
-  color: #aa96da;
+  color: palevioletred;
   padding-top: 8%;
   padding-bottom: 4%;
   /* visibility: hidden; */
