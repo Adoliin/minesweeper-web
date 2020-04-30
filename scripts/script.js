@@ -55,8 +55,11 @@ function clickedBox0() {
       if (gridBox[btnNum] == 0) {
         this.classList.add("safeBox");
         gridBox[btnNum] = 2;
+        numOfBoxesAround(btnNum);
+      
       } else if (gridBox[btnNum] == 1) {
         changeTitle("YOU LOST !");
+        showSafeBoxes();
         initGame();
         showInfo("Press on the middle button to restart adding levels !", "appear");
       }
@@ -77,19 +80,24 @@ function gameStart() {
 
 function clickedMidBox() {
   $(".box-mid").on("click", function () {
+    if (!statedAddingLvls) {
+      removeRndBoxes();
+      statedAddingLvls = true;
+    }
+
     if (!startedPlaying) {
       addingLevels();
     }
   });
 }
 
-function clickedStart(gameStartFun) {
+function clickedStart(gameStart) {
 
   $(document).on("keypress", function (e) {
     var startedAddingLvls = ((lvl > -1 && reachedX) || (lvl > 1 && !reachedX));
     if (e.key == "Enter" && !startedPlaying && startedAddingLvls) {
       startedPlaying = true;
-      gameStartFun();
+      gameStart();
     }
   });
 
@@ -97,7 +105,7 @@ function clickedStart(gameStartFun) {
     var startedAddingLvls = ((lvl > -1 && reachedX) || (lvl > 1 && !reachedX));
     if (!startedPlaying && startedAddingLvls) {
       startedPlaying = true;
-      gameStartFun();
+      gameStart();
     }
   });
 }
@@ -192,7 +200,7 @@ function initGrid() {
   }
 
   var mD = Math.floor(gridDimension / 2) + 1;
-  var midBox = "b" + mD + "-" + mD;
+  midBox = "b" + mD + "-" + mD;
   gridBox[midBox] = 1;
 
 
@@ -214,12 +222,13 @@ function isGridFull() {
 }
 
 function initGame() {
-  levelX = Math.floor(gridDimension**2 / 2);
-  removeRndBoxes();
+  levelX = Math.floor(gridDimension ** 2 / 2);
   gridBox = initGrid();
   lvl = 1;
   reachedX = false;
   startedPlaying = false;
+
+  statedAddingLvls = false;
 }
 
 function didItWin() {
@@ -231,4 +240,43 @@ function didItWin() {
     }
   }
   return true;
+}
+
+function showSafeBoxes() {
+  var b0 = $(".box0");
+  for (let i = 0; i < b0.length; i++) {
+    var btnNum = b0[i].classList[0];
+    if (gridBox[btnNum] == 0 || gridBox[btnNum] == 2) {
+      b0[i].classList.add("safeBox");
+    }
+
+    if (gridBox[btnNum] == 1) {
+      b0[i].classList.add("redBox");
+    }
+  }
+}
+
+function numOfBoxesAround(boxNb) {
+  var numAround = 0;
+
+  var spr = boxNb.indexOf('-');
+  var ni = boxNb.slice(1,spr);
+  var nj = boxNb.slice(spr+1,boxNb.length);
+  
+  ni = parseInt(ni, 10);
+  nj = parseInt(nj, 10);
+
+  for (let i = ni - 1; i <= ni + 1; i++) {
+    for (let j = nj - 1; j <= nj + 1; j++) {
+      if (!(i == n && j == n)){
+        var n = 'b'+i+'-'+j;
+        // console.log(n);
+        if (gridBox[n] == 1 && n != midBox) {
+          numAround++;
+        }
+      }
+    }
+  }
+  $('.'+boxNb).text(numAround);
+
 }
