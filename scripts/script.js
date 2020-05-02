@@ -141,6 +141,7 @@ function addingLevels() {
 
 }
 
+//DONE
 function removeRndBoxes() {
 
   var b0 = $(".box0");
@@ -150,27 +151,7 @@ function removeRndBoxes() {
   }
 }
 
-function startBtn(cmd) {
-  if (cmd === "appear") {
-    $(".start-button")[0].classList.add("appearElem");
-  } else {
-    $(".start-button")[0].classList.remove("appearElem");
-  }
-}
-
-function changeTitle(msg) {
-  $(".title-text").text(msg);
-}
-
-function showInfo(msg, cmd) {
-  if (cmd === "appear") {
-    $(".info-text")[0].classList.add("appearElem");
-    $(".info-text").text(msg);
-  } else {
-    $(".info-text")[0].classList.remove("appearElem");
-  }
-}
-
+//DONE
 function markRndBox() {
   var ok = false;
 
@@ -188,6 +169,31 @@ function markRndBox() {
   }
 }
 
+//DONE
+function startBtn(cmd) {
+  if (cmd === "appear") {
+    $(".start-button")[0].classList.add("appearElem");
+  } else {
+    $(".start-button")[0].classList.remove("appearElem");
+  }
+}
+
+//DONE
+function changeTitle(msg) {
+  $(".title-text").text(msg);
+}
+
+//DONE
+function showInfo(msg, cmd) {
+  if (cmd === "appear") {
+    $(".info-text")[0].classList.add("appearElem");
+    $(".info-text").text(msg);
+  } else {
+    $(".info-text")[0].classList.remove("appearElem");
+  }
+}
+
+//DONE
 function initGrid() {
   gridBox = {};
 
@@ -206,6 +212,7 @@ function initGrid() {
   return gridBox;
 }
 
+//DONE
 function isGridFull() {
   for (i = 1; i <= gridDimension; i++) {
     for (j = 1; j <= gridDimension; j++) {
@@ -220,6 +227,7 @@ function isGridFull() {
   return true;
 }
 
+//DONE
 function initGame() {
   $(".box0").html("");
   levelX = Math.floor(gridDimension ** 2 / 2);
@@ -231,6 +239,7 @@ function initGame() {
   statedAddingLvls = false;
 }
 
+//DONE
 function didItWin() {
   var b0 = $(".box0");
   for (i = 0; i < b0.length; i++) {
@@ -242,6 +251,7 @@ function didItWin() {
   return true;
 }
 
+//DONE
 function showSafeBoxes() {
   var b0 = $(".box0");
   for (let i = 0; i < b0.length; i++) {
