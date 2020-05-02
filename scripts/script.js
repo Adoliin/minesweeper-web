@@ -5,7 +5,6 @@ clickedStart(gameStart);
 clickedBox0();
 
 
-
 $(".test-btn").on("click", function () {
   addBoxesBy2();
   changeTitle("Keep pressing on the middle button to increase difficulty !");
@@ -222,6 +221,7 @@ function isGridFull() {
 }
 
 function initGame() {
+  $(".box0").html("");
   levelX = Math.floor(gridDimension ** 2 / 2);
   gridBox = initGrid();
   lvl = 1;
@@ -277,6 +277,7 @@ function numOfBoxesAround(boxNb) {
       }
     }
   }
-  $('.'+boxNb).text(numAround);
-
+  $('.'+boxNb).html(
+  "<div class='num-around'>"+numAround+"</div>"
+  );
 }

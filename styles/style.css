@@ -22,13 +22,17 @@
 body {
   text-align: center;
   background-color: #011F3F;
+  /* display: grid;
+  justify-content: center;
+  justify-items: center;
+  height: 100vh; */
 }
 
 /* Title */
 .title {
   color: #e23e57;
-  padding-top: 4%;
-  padding-bottom: 4%;
+  padding-top: 50px;
+  padding-bottom: 75px;
 
 }
 
@@ -39,10 +43,9 @@ body {
 
 
 .test-btn {
-  width: 100px;
-  height: 100px;
-  margin-left: 300px;
-  background-color:purple;
+  font-size: 1.6rem;
+  font-family: PressStart;
+  color: aqua;
 }
 
 
@@ -63,8 +66,12 @@ body {
 .box0 {
   width: 30px;
   height: 30px;
-
+  display: flex;
  background-color: mediumseagreen;
+ color: red;
+ align-items: center;
+ justify-content: center;
+ 
 }
 
 .box0:hover {
@@ -84,10 +91,24 @@ body {
 
 .redBox {
   background-color: #e23e57 !important;
+  animation-name: redBox-anim;
+  animation-duration: 1s;
+}
+
+@keyframes redBox-anim {
+  from {background-color: mediumseagreen;}
+  to {background-color: #e23e57;}
 }
 
 .safeBox {
-  background-color: white !important;
+  background-color: paleturquoise !important;
+  animation-name: safeBox-anim;
+  animation-duration: 1s;
+}
+
+@keyframes safeBox-anim {
+  from {background-color: mediumseagreen;}
+  to {background-color: paleturquoise;}
 }
 
 /* Show elemnts */
@@ -98,8 +119,8 @@ body {
 /* Additional informations */
 .info {
   color: palevioletred;
-  padding-top: 8%;
-  padding-bottom: 4%;
+  padding-top: 75px;
+  padding-bottom: 25px;
   /* visibility: hidden; */
 }
 
@@ -112,4 +133,8 @@ body {
 .start-button {
   font-family: RighteousReg;
   visibility: hidden;
+}
+
+.num-around {
+  /* a class made for JS */
 }
