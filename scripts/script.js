@@ -71,12 +71,14 @@ function clickedBox0() {
   });
 }
 
+//DONE
 function gameStart() {
   removeRndBoxes();
   showInfo("-", "dissapear");
   startBtn("dissapear");
 }
 
+//DONE
 function clickedMidBox() {
   $(".box-mid").on("click", function () {
     if (!statedAddingLvls) {
@@ -90,6 +92,7 @@ function clickedMidBox() {
   });
 }
 
+//DONE
 function clickedStart(gameStart) {
 
   $(document).on("keypress", function (e) {
@@ -109,6 +112,7 @@ function clickedStart(gameStart) {
   });
 }
 
+//DONE
 function addingLevels() {
 
   if (lvl !== 0) {
@@ -137,8 +141,6 @@ function addingLevels() {
     lvl--;
     markRndBox();
   }
-
-
 }
 
 //DONE
