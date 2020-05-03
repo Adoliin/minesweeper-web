@@ -45,6 +45,7 @@ function addBoxesBy2() {
 
 }
 
+//DONE
 function clickedBox0() {
 
   $(".box0").on("click", function () {
@@ -268,6 +269,7 @@ function showSafeBoxes() {
   }
 }
 
+//DONE
 function numOfBoxesAround(boxNb) {
   var numAround = 0;
 
