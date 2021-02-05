@@ -46,7 +46,7 @@ body {
   font-size: 1.6rem;
   font-family: PressStart;
   color: aqua;
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 
@@ -68,10 +68,10 @@ body {
   width: 30px;
   height: 30px;
   display: flex;
- background-color: mediumseagreen;
- align-items: center;
- justify-content: center;
- 
+  background-color: mediumseagreen;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .box0:hover {
@@ -82,7 +82,7 @@ body {
 .box-mid {
   width: 30px;
   height: 30px;
- 
+
   background-color: blue !important;
   padding-top: 32px;
 
@@ -96,8 +96,13 @@ body {
 }
 
 @keyframes redBox-anim {
-  from {background-color: mediumseagreen;}
-  to {background-color: #e23e57;}
+  from {
+    background-color: mediumseagreen;
+  }
+
+  to {
+    background-color: #e23e57;
+  }
 }
 
 .safeBox {
@@ -107,8 +112,13 @@ body {
 }
 
 @keyframes safeBox-anim {
-  from {background-color: mediumseagreen;}
-  to {background-color: paleturquoise;}
+  from {
+    background-color: mediumseagreen;
+  }
+
+  to {
+    background-color: paleturquoise;
+  }
 }
 
 /* Show elemnts */
