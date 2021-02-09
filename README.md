@@ -1,9 +1,12 @@
 # Minesweeper Web
 A simple minesweeper game made using vannila javascript and jQuery for the web.
 
-## Usage
-Clone this repository and open the "index.html" file in a browser 
-or just use [this link](https://adoliin.github.io/minesweeper-web/).
+## Link
+https://adoliin.github.io/minesweeper-web
+
+## How to play
+Keep pressing on the blue text in top to keep adding mines
+And press the middle (blue button) to start playing
 
 ## Screenshots
 ![screenshot-1](/screenshots/screenshot1.png)
